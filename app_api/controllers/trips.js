@@ -1,11 +1,12 @@
 const mongoose = require('mongoose'); //. set ('debug', true);
-const Model = mongoose.model('trips');
+const Model = require('../database/models/travlr')
+
 
 // GET: /trips - lists all the trips
 const tripsList = async (req, res) => {
     Model
         .find({}) // empty filter for all
-        .excec((err, trips) => {
+        .exec((err, trips) => {
             if (!trips){
                 return res
                     .status(404)
@@ -18,14 +19,14 @@ const tripsList = async (req, res) => {
             } else {
                 return res
                     .status(200)
-                    .jason(trips);
+                    .json(trips);
             }
 
             });
         };
 
 //GET: /trips/:tripCode - returns a single trip
-const tripsFindByCode = async (req, res) => {
+const tripsFindCode = async (req, res) => {
     Model
         .find({'code': req.params.tripCode})
         .exec((err, trip) => {
@@ -46,7 +47,7 @@ const tripsFindByCode = async (req, res) => {
 ;}
 
 const tripsAddTrip = async (req,res) => {
-    model
+    Model
     .create({
         code: req.body.code,
         name: req.body.name,
@@ -70,8 +71,8 @@ const tripsAddTrip = async (req,res) => {
     });
 }
 const tripsUpdateTrip = async (req, res) => {
-    console.log(reqa.body);
-    model
+    console.log(req.body);
+    Model
         .findOneAndUpdate({ 'code': req.params.tripCode }, {
         code: req.body.code,
         name: req.body.name,
@@ -107,6 +108,7 @@ const tripsUpdateTrip = async (req, res) => {
 
 module.exports = {
     tripsList,
-    tripsFindByCode,
-    tripsAddTrip
+    tripsFindCode,
+    tripsAddTrip,
+    tripsUpdateTrip
 };

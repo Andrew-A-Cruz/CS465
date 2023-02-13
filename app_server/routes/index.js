@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const tripsController = require('../controllers/trips');
+const tripsController = require('../../app_api/controllers/trips');
 
 router
     .route('/trips')
