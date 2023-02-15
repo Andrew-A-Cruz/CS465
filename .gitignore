@@ -70,3 +70,5 @@ typings/
 *.code-workspace
 
 *.http
+
+*.env
