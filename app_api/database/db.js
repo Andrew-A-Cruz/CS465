@@ -38,5 +38,5 @@ process.on('SIGTERM', () => {
   connect();
 
   //bring in Mongoose Schema
-  require('./models/travlr');
+  require('./models/user');
 });              
