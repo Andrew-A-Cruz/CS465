@@ -59,11 +59,12 @@ export class TripDataService {
   public login(user: User): Promise<AuthResponse> {
     return this.makeAuthApiCall('login', user);
   }
+
   public register(user: User): Promise<AuthResponse> {
     return this.makeAuthApiCall('register', user);
    }
-   private makeAuthApiCall(urlPath: string, user: User):
-Promise<AuthResponse> {
+   
+   private makeAuthApiCall(urlPath: string, user: User): Promise<AuthResponse> {
  const url: string = `${this.apiBaseUrl}/${urlPath}`;
  return this.http
  .post(url, user)
