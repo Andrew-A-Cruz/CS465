@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 import { User } from '../../../../app_api/database/models/user'
+
 @Component({
 selector: 'app-login',
 templateUrl: './login.component.html',
 styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 public formError: string = '';
 public credentials = {
@@ -14,10 +16,12 @@ public credentials = {
  email: '',
  password: ''
 };
+
 constructor(
  private router: Router,
  private authenticationService: AuthenticationService
 ) { }
+
 ngOnInit() {}
 public onLoginSubmit(): void {
  this.formError = '';
@@ -27,6 +31,7 @@ public onLoginSubmit(): void {
  this.doLogin();
  }
 }
+
 private doLogin(): void {
  this.authenticationService.login(this.credentials)
  .then(() => this.router.navigateByUrl('#'))
