@@ -112,7 +112,7 @@ const tripsUpdateTrip = async (req, res) => {
                         .json(err)
         });
 }
-    );
+    ); 
 }
 
 module.exports = {
