@@ -2,7 +2,6 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const User = mongoose.model('users');
 const register = (req, res) => {
-    console.log("test")
     if (!req.body.name || !req.body.email || !req.body.password) {
         return res
             .status(400)
