@@ -2,6 +2,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const User = mongoose.model('users');
 const register = (req, res) => {
+    console.log("test")
     if (!req.body.name || !req.body.email || !req.body.password) {
         return res
             .status(400)
@@ -14,12 +15,12 @@ const register = (req, res) => {
     user.setPassword(req.body.password);
     user.save((err) => {
         if (err) {
-            res
+            return res
                 .status(400)
                 .json(err);
         } else {
             const token = user.generateJwt();
-            res
+            return res
                 .status(200)
                 .json({ token });
         }

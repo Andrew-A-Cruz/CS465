@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -9,7 +11,7 @@ const hbs = require('hbs');
 const passport = require('passport');
 
 require('./app_api/database/db');
-
+require("./app_api/database/models/user");
 require('./app_api/config/passport');
 
 var indexRouter = require('./app_server/routes/index');
